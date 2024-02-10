@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import { useParams } from "react-router-dom";
 
 export default function MealDetails() {
-  return (
-    <div className='meal-details'>
-        
-    </div>
-  )
+  const {id} = useParams();
+
+  return <div className="meal-details"></div>;
 }

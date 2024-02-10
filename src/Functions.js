@@ -26,6 +26,19 @@ export const getSpaceficCategory = async (cat) => {
   }
 };
 
+//function to get all meals for spacific category from the api
+export const getSpaceficMeal = async (id) => {
+  try {
+    const response = await axios.get(
+      `www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+    );
+    return response.data.meals;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
+  }
+};
+
 export const truncateDescription = (description) => {
   const words = description.split(" ");
   if (words.length > 20) {
