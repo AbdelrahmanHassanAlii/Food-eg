@@ -1,32 +1,21 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "../Css/home.css";
+import { truncateDescription, getAllCategories } from "../Functions";
 
 export default function Home() {
+  //get categories data from external file
+  const fetchData = async () => {
+    const categoriesData = await getAllCategories();
+    setCategories(categoriesData);
+  };
+
+  //use state to store the data
   const [categories, setCategories] = useState([]);
 
+  //use effect to call the function once load the page
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://www.themealdb.com/api/json/v1/1/categories.php"
-        );
-        setCategories(response.data.categories);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
     fetchData();
   }, []);
-
-  const truncateDescription = (description) => {
-    const words = description.split(" ");
-    if (words.length > 20) {
-      return words.slice(0, 20).join(" ") + "...";
-    }
-    return description;
-  };
 
   return (
     <div className="home">
