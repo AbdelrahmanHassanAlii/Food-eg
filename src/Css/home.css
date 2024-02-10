@@ -12,13 +12,26 @@
 
 .home .container .card {
   background-color: white;
-  padding: 10px;
+  padding: 70px 10px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(39, 55, 77, 0.3); /* Box shadow with color #27374D */
+  box-shadow: 1px 2px 4px rgba(39, 55, 77, 0.3);
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.home .container .card:hover {
+  box-shadow: 5px 5px 5px 2px rgba(39, 55, 77, 0.5);
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
 }
 
 .home .container .card .img {
@@ -45,4 +58,33 @@
   font-size: 12px;
   font-weight: bold;
   margin: 20px 0;
+}
+
+.home .container .card .show-meals {
+  text-align: center;
+}
+
+.home .container .card .show-meals button {
+  background-color: #27374d;
+  color: #dde6ed;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #27374d;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.home .container .card .show-meals button:hover {
+  background-color: transparent;
+  color: #27374d;
 }
