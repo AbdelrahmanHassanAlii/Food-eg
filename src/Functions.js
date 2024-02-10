@@ -1,12 +1,25 @@
 import axios from "axios";
 
-//function to get all categories from hte api
+//function to get all categories from the api
 export const getAllCategories = async () => {
   try {
     const response = await axios.get(
       "https://www.themealdb.com/api/json/v1/1/categories.php"
     );
     return response.data.categories;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
+  }
+};
+
+//function to get all meals for spacific category from the api
+export const getSpaceficCategory = async (cat) => {
+  try {
+    const response = await axios.get(
+      `https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`
+    );
+    return response.data.meals;
   } catch (error) {
     console.error("Error fetching data:", error);
     return [];
