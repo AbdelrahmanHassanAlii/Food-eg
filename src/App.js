@@ -3,6 +3,7 @@ import Header from "./Components/Header";
 import Home from "./Components/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MealsOfCategory from "./Components/MealsOfCategory";
+import MealDetails from "./Components/MealDetails";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/category/:name" element={<MealsOfCategory />} />
+          <Route path="/meal/:id" element={<MealDetails />} />
         </Routes>
       </BrowserRouter>
     </div>
