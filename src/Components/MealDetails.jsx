@@ -7,6 +7,7 @@ export default function MealDetails() {
   const [data, setData] = useState(null); // Set initial state to null
 
   useEffect(() => {
+    //function which get the data from the api
     const fetchData = async () => {
       try {
         const mealData = await getSpaceficMeal(id);
@@ -16,20 +17,9 @@ export default function MealDetails() {
       }
     };
 
+    //use the function to fetch the data
     fetchData();
   }, [id]); // Add id to dependency array to fetch data when id changes
-
-  const extractNonNullIngredients = (mealData) => {
-    const nonNullIngredients = [];
-    for (let i = 1; i <= 20; i++) {
-      const ingredientKey = `strIngredient${i}`;
-      const ingredientValue = mealData[ingredientKey];
-      if (ingredientValue && ingredientValue.trim() !== "") {
-        nonNullIngredients.push(ingredientValue);
-      }
-    }
-    return nonNullIngredients;
-  };
 
   return (
     <div className="meal-details">
@@ -42,6 +32,18 @@ export default function MealDetails() {
             <div className="name">{data.strMeal}</div>
             <div className="category">{data.strCategory}</div>
             <div className="area">{data.strArea}</div>
+            <div className="ingredients">
+              <h2>Ingredients:</h2>
+              <ul>
+                {Array.from({ length: 20 }, (_, i) => i + 1).map((index) => {
+                  const ingredient = data[`strIngredient${index}`];
+                  const measure = data[`strMeasure${index}`];
+                  return ingredient && measure ? (
+                    <li key={index}>{`${measure} ${ingredient}`}</li>
+                  ) : null;
+                })}
+              </ul>
+            </div>
           </div>
         </div>
       ) : (
