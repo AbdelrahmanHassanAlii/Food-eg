@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getSpaceficMeal } from "../Functions";
 
 export default function MealDetails() {
@@ -24,7 +24,7 @@ export default function MealDetails() {
   return (
     <div className="meal-details">
       {data ? (
-        <div className="exist">
+        <div className="exist container">
           <div className="meal-img">
             <img src={data.strMealThumb} alt={data.strMeal} />
           </div>
@@ -40,22 +40,45 @@ export default function MealDetails() {
                   const ingredient = data[`strIngredient${index}`];
                   const measure = data[`strMeasure${index}`];
                   return ingredient && measure ? (
-                    <li key={index}>{`${measure} ${ingredient}`}</li>
+                    <li key={index}>
+                      {`${measure}`} <span>of</span> {`${ingredient}`}
+                    </li>
                   ) : null;
                 })}
               </ul>
             </div>
             <div className="instruction">{data.strInstructions}</div>
             {/* get tags and display it */}
-            <div className="tags">
-              {data.strTags.split(",").map((tag, index) => (
-                <div key={index}>{tag.trim()}</div>
-              ))}
-            </div>
+            {data.strTags && data.strTags.trim() !== "" ? (
+              <div className="tags">
+                {data.strTags.split(",").map((tag, index) => (
+                  <div key={index}>{tag.trim()}</div>
+                ))}
+              </div>
+            ) : null}
+            {data.strYoutube ? (
+              <Link
+                to={data.strYoutube}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                youtube
+              </Link>
+            ) : null}
+
+            {data.strSource ? (
+              <Link
+                to={data.strSource}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Source
+              </Link>
+            ) : null}
           </div>
         </div>
       ) : (
-        <p>Loading...</p> // Show loading message while fetching data
+        <p className="container">Loading...</p> // Show loading message while fetching data
       )}
     </div>
   );
