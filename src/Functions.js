@@ -26,11 +26,11 @@ export const getSpaceficCategory = async (cat) => {
   }
 };
 
-//function to get all meals for spacific category from the api
+//function to spacific meal deatails
 export const getSpaceficMeal = async (id) => {
   try {
     const response = await axios.get(
-      `www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+      `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
     );
     return response.data.meals;
   } catch (error) {
