@@ -19,6 +19,18 @@ export default function MealDetails() {
     fetchData();
   }, [id]); // Add id to dependency array to fetch data when id changes
 
+  const extractNonNullIngredients = (mealData) => {
+    const nonNullIngredients = [];
+    for (let i = 1; i <= 20; i++) {
+      const ingredientKey = `strIngredient${i}`;
+      const ingredientValue = mealData[ingredientKey];
+      if (ingredientValue && ingredientValue.trim() !== "") {
+        nonNullIngredients.push(ingredientValue);
+      }
+    }
+    return nonNullIngredients;
+  };
+
   return (
     <div className="meal-details">
       {data ? (
