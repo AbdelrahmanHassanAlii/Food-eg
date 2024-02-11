@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getSpaceficMeal } from "../Functions";
+import "../Css/mealDetails.css";
 
 export default function MealDetails() {
   const { id } = useParams();
@@ -30,8 +31,8 @@ export default function MealDetails() {
           </div>
           <div className="text">
             <div className="name">{data.strMeal}</div>
-            <div className="category">{data.strCategory}</div>
-            <div className="area">{data.strArea}</div>
+            <div className="category"><span>Category : </span>{data.strCategory}</div>
+            <div className="area"><span>Country : </span>{data.strArea}</div>
             {/* there is the function to get the ingredients */}
             <div className="ingredients">
               <h2>Ingredients:</h2>
