@@ -32,6 +32,7 @@ export default function MealDetails() {
             <div className="name">{data.strMeal}</div>
             <div className="category">{data.strCategory}</div>
             <div className="area">{data.strArea}</div>
+            {/* there is the function to get the ingredients */}
             <div className="ingredients">
               <h2>Ingredients:</h2>
               <ul>
@@ -43,6 +44,13 @@ export default function MealDetails() {
                   ) : null;
                 })}
               </ul>
+            </div>
+            <div className="instruction">{data.strInstructions}</div>
+            {/* get tags and display it */}
+            <div className="tags">
+              {data.strTags.split(",").map((tag, index) => (
+                <div key={index}>{tag.trim()}</div>
+              ))}
             </div>
           </div>
         </div>
