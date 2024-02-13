@@ -21,14 +21,17 @@ export default function Home() {
   return (
     <div className="home">
       <div className="container">
-        {categories.length > 0 &&
+        {categories.length > 0 ? (
           categories.map((category) => (
             <Card
               key={category.idCategory}
               category={category}
               truncateDescription={truncateDescription}
             />
-          ))}
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
     </div>
   );

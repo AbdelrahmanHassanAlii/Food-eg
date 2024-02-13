@@ -23,9 +23,11 @@ export default function MealsOfCategory() {
   return (
     <div className="container">
       <div className="meals">
-        {meals.length > 0
-          ? meals.map((meal) => <Card key={meal.idMeal} meal={meal} />)
-          : null}
+        {meals.length > 0 ? (
+          meals.map((meal) => <Card key={meal.idMeal} meal={meal} />)
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
     </div>
   );
