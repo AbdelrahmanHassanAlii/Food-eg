@@ -22,6 +22,29 @@
       -ms-transform: scale(1.05);
       -o-transform: scale(1.05);
     }
+    button {
+        background-color: #3a4d39;
+        color: #ece3ce;
+        padding: 10px;
+        cursor: pointer;
+        border: 3px solid #3a4d39;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        font-size: 15px;
+        font-weight: bold;
+        transition: 0.3s;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
+        &:hover {
+          background-color: transparent;
+          color: #3a4d39;
+        }
+      }
     .meal-img {
       img {
         height: 200px;
@@ -33,6 +56,9 @@
       font-size: 20px;
       font-weight: bold;
       margin: 20px 0;
+    }
+    .show-meal {
+      
     }
   }
 }
