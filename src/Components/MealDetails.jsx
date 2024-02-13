@@ -65,21 +65,19 @@ export default function MealDetails() {
             {/* get tags and display it */}
             {data.strTags && data.strTags.trim() !== "" ? (
               <div className="tags">
+                <h3> This Meal Related to :</h3>
                 {data.strTags.split(",").map((tag, index) => (
-                  <div key={index}>{tag.trim()}</div>
+                  <span key={index}>{tag.trim()}</span>
                 ))}
               </div>
             ) : null}
             {data.strYoutube ? (
               <Link
-                className="youtube"
                 to={data.strYoutube}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {/* <i className="fab fa-youtube"></i> */}
-                <i class="fas fa-heart"></i>
-                youtube
+                <button className="youtube">Youtube</button>
               </Link>
             ) : null}
 
@@ -89,7 +87,7 @@ export default function MealDetails() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Source
+                <button className="source">Source</button>
               </Link>
             ) : null}
           </div>
