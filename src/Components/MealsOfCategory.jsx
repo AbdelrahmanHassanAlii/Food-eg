@@ -18,7 +18,7 @@ export default function MealsOfCategory() {
 
   useEffect(() => {
     fetchMeals();
-  }, []); // Add cat to the dependency array to refetch meals when the category changes
+  }, []);
 
   return (
     <div className="container">
