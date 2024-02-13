@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getSpaceficMeal } from "../Functions";
 import "../Css/mealDetails.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function MealDetails() {
   const { id } = useParams();
@@ -31,11 +32,17 @@ export default function MealDetails() {
           </div>
           <div className="text">
             <div className="name">{data.strMeal}</div>
-            <div className="category"><span>Category : </span>{data.strCategory}</div>
-            <div className="area"><span>Country : </span>{data.strArea}</div>
+            <div className="category">
+              <span>Category : </span>
+              {data.strCategory}
+            </div>
+            <div className="area">
+              <span>Country : </span>
+              {data.strArea}
+            </div>
             {/* there is the function to get the ingredients */}
             <div className="ingredients">
-              <h2>Ingredients:</h2>
+              <h3>What You Want to Cook:</h3>
               <ul>
                 {Array.from({ length: 20 }, (_, i) => i + 1).map((index) => {
                   const ingredient = data[`strIngredient${index}`];
@@ -48,7 +55,10 @@ export default function MealDetails() {
                 })}
               </ul>
             </div>
-            <div className="instruction">{data.strInstructions}</div>
+            <div className="instruction">
+              <h3>How to Cook:</h3>
+              {data.strInstructions}
+            </div>
             {/* get tags and display it */}
             {data.strTags && data.strTags.trim() !== "" ? (
               <div className="tags">
@@ -59,10 +69,13 @@ export default function MealDetails() {
             ) : null}
             {data.strYoutube ? (
               <Link
+                className="youtube"
                 to={data.strYoutube}
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                {/* <i className="fab fa-youtube"></i> */}
+                <i class="fas fa-heart"></i>
                 youtube
               </Link>
             ) : null}

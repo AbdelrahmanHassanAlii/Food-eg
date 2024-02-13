@@ -51,22 +51,23 @@
     font-weight: bold;
     color: rgba(58, 77, 57, 0.9);
   }
-  /* .area {
-    font-weight: bold;
-    color: rgba(58, 77, 57, 0.9);
-  } */
-}
-
-.exist .text .name {
+  .youtube {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    margin: 100px;
+  }
 }
 
 @media (min-width: 768px) {
   .exist .text .name {
     font-size: 35px;
   }
-}
-
-.exist .text .category {
 }
 
 @media (min-width: 768px) {
