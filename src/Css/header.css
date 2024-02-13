@@ -1,5 +1,5 @@
 .header {
-  background-color: #3A4D39;
+  background-color: #3a4d39;
   padding: 20px 0;
   font-size: 18px;
   color: white;
@@ -8,21 +8,23 @@
   top: 0px;
   left: 0px;
   z-index: 10;
-}
 
-.header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.header .container .brand-name span {
-  letter-spacing: 2px;
-}
+    .brand-name {
+      span {
+        letter-spacing: 2px;
+      }
+    }
 
-.header .container .links {
-  width: 30%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+    .links {
+      width: 30%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
 }
