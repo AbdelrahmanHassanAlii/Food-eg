@@ -1,6 +1,6 @@
 # FOOD EG
 
-![Cover Food](../scr/images/cover.png)
+![Cover Food](./src/images/cover.png)
 
 ## Welcome!👋
 
