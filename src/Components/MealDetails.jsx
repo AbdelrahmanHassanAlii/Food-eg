@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getSpaceficMeal } from "../Functions";
 import "../Css/mealDetails.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function MealDetails() {
   const { id } = useParams();
@@ -43,21 +42,25 @@ export default function MealDetails() {
             {/* there is the function to get the ingredients */}
             <div className="ingredients">
               <h3>What You Want to Cook:</h3>
-              <ul>
-                {Array.from({ length: 20 }, (_, i) => i + 1).map((index) => {
-                  const ingredient = data[`strIngredient${index}`];
-                  const measure = data[`strMeasure${index}`];
-                  return ingredient && measure ? (
-                    <li key={index}>
-                      {`${measure}`} <span>of</span> {`${ingredient}`}
-                    </li>
-                  ) : null;
-                })}
-              </ul>
+              <div className="list-of-ingredients">
+                <ul>
+                  {Array.from({ length: 20 }, (_, i) => i + 1).map((index) => {
+                    const ingredient = data[`strIngredient${index}`];
+                    const measure = data[`strMeasure${index}`];
+                    return ingredient && measure ? (
+                      <li key={index}>
+                        {`${measure}`} <span>of</span> {`${ingredient}`}
+                      </li>
+                    ) : null;
+                  })}
+                </ul>
+              </div>
             </div>
             <div className="instruction">
               <h3>How to Cook:</h3>
-              {data.strInstructions}
+              <div className="content-of-instruction">
+                {data.strInstructions}
+              </div>
             </div>
             {/* get tags and display it */}
             {data.strTags && data.strTags.trim() !== "" ? (
